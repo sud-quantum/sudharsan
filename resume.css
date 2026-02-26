@@ -5,42 +5,47 @@
 }
 
 :root {
-    --primary: #1a1a1a;
-    --secondary: #4a4a4a;
-    --accent: #2563eb;
-    --bg: #ffffff;
-    --border: #e0e0e0;
-    --text: #1a1a1a;
-}
-
-body.dark-mode {
-    --primary: #f1f5f9;
-    --secondary: #94a3b8;
-    --accent: #3b82f6;
-    --bg: #0f172a;
-    --border: #334155;
-    --text: #f1f5f9;
+    --primary: #ec7f13;
+    --primary-dark: #d66c04;
+    --secondary: #2A9D8F;
+    --background-light: #f8f7f6;
+    --background-dark: #181411;
+    --surface-light: #ffffff;
+    --surface-dark: #27211c;
+    --text-light: #393028;
+    --text-dark: #ffffff;
+    --muted-light: #8a7e72;
+    --muted-dark: #b9ab9d;
+    --border-light: #e5e0dc;
+    --border-dark: #393028;
 }
 
 body {
-    font-family: 'Georgia', 'Times New Roman', serif;
-    color: var(--text);
-    background: var(--bg);
+    font-family: 'Space Grotesk', 'Georgia', sans-serif;
+    color: var(--text-light);
+    background: var(--background-light);
     line-height: 1.6;
     padding: 2rem 1rem;
     transition: background-color 0.3s, color 0.3s;
 }
 
+body.dark-mode {
+    color: var(--text-dark);
+    background: var(--background-dark);
+}
+
 .resume {
     max-width: 850px;
     margin: 0 auto;
-    background: var(--bg);
+    background: var(--surface-light);
     padding: 3rem;
     box-shadow: 0 0 20px rgba(0,0,0,0.1);
     transition: background-color 0.3s;
+    border-radius: 0.75rem;
 }
 
 body.dark-mode .resume {
+    background: var(--surface-dark);
     box-shadow: 0 0 20px rgba(0,0,0,0.5);
 }
 
@@ -61,9 +66,13 @@ body.dark-mode .resume {
 
 .title {
     font-size: 1.3rem;
-    color: var(--secondary);
+    color: var(--muted-light);
     margin-bottom: 1rem;
     font-style: italic;
+}
+
+body.dark-mode .title {
+    color: var(--muted-dark);
 }
 
 .contact-info {
@@ -85,12 +94,13 @@ body.dark-mode .resume {
 }
 
 .contact-info a {
-    color: var(--accent);
+    color: var(--primary);
     text-decoration: none;
 }
 
 .contact-info a:hover {
     text-decoration: underline;
+    color: var(--primary-dark);
 }
 
 /* Sections */
@@ -111,8 +121,12 @@ section h2 {
 /* Summary */
 .summary p {
     text-align: justify;
-    color: var(--secondary);
+    color: var(--muted-light);
     font-size: 1rem;
+}
+
+body.dark-mode .summary p {
+    color: var(--muted-dark);
 }
 
 /* Experience */
@@ -135,18 +149,30 @@ section h2 {
 
 .company {
     font-style: italic;
-    color: var(--secondary);
+    color: var(--muted-light);
+}
+
+body.dark-mode .company {
+    color: var(--muted-dark);
 }
 
 .date {
-    color: var(--secondary);
+    color: var(--muted-light);
     font-size: 0.95rem;
     white-space: nowrap;
 }
 
+body.dark-mode .date {
+    color: var(--muted-dark);
+}
+
 .job ul {
     margin-left: 1.5rem;
-    color: var(--secondary);
+    color: var(--muted-light);
+}
+
+body.dark-mode .job ul {
+    color: var(--muted-dark);
 }
 
 .job li {
@@ -168,9 +194,13 @@ section h2 {
 }
 
 .skill-group p {
-    color: var(--secondary);
+    color: var(--muted-light);
     font-size: 0.95rem;
     line-height: 1.6;
+}
+
+body.dark-mode .skill-group p {
+    color: var(--muted-dark);
 }
 
 /* Projects */
@@ -185,8 +215,12 @@ section h2 {
 }
 
 .project p {
-    color: var(--secondary);
+    color: var(--muted-light);
     line-height: 1.6;
+}
+
+body.dark-mode .project p {
+    color: var(--muted-dark);
 }
 
 /* Print Styles */
@@ -241,8 +275,8 @@ section h2 {
     width: 50px;
     height: 50px;
     border-radius: 50%;
-    background: var(--accent);
-    border: 2px solid var(--border);
+    background: var(--primary);
+    border: 2px solid var(--border-light);
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -252,9 +286,14 @@ section h2 {
     z-index: 1000;
 }
 
+body.dark-mode .theme-toggle-btn {
+    border-color: var(--border-dark);
+}
+
 .theme-toggle-btn:hover {
     transform: scale(1.1);
     box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+    background: var(--primary-dark);
 }
 
 .theme-toggle-btn svg {
@@ -305,7 +344,7 @@ body.dark-mode .theme-toggle-btn .moon-icon {
     align-items: center;
     gap: 0.5rem;
     padding: 0.75rem 1.25rem;
-    background: var(--accent);
+    background: var(--primary);
     color: white;
     text-decoration: none;
     border-radius: 50px;
@@ -314,12 +353,13 @@ body.dark-mode .theme-toggle-btn .moon-icon {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     transition: all 0.3s;
     z-index: 1000;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Space Grotesk', 'Segoe UI', sans-serif;
 }
 
 .back-btn:hover {
     transform: translateX(-5px);
     box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+    background: var(--primary-dark);
 }
 
 .back-btn svg {
