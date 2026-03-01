@@ -974,6 +974,11 @@ main {
     gap: 0.5rem;
 }
 
+.timeline-span{
+    font-weight: 600;
+    color: var(--primary);
+}
+
 .timeline-tag {
     font-size: 10px;
     text-transform: uppercase;
